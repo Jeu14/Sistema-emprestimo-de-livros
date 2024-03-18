@@ -13,7 +13,8 @@ AppDataSource.initialize()
         app.use(routes);
 
         app.use(errorMiddleware);
-        return app.listen(process.env.PORT);
+        const port = process.env.DB_PORT as number | undefined;
+        return app.listen(port);
     })
     .catch((error) => {
         console.log(error);
