@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { loggedUser } from "./LoggedUser";
-import { IUserData } from "../interfaces/IUserData";
+import { IUserData } from "../../interfaces/IUserData";
 
 export class userDetails {
     async index(req: Request, res: Response) {

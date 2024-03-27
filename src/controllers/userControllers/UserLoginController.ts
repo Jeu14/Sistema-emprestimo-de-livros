@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { userRepository } from "../repositories/userRepository";
+import { userRepository } from "../../repositories/userRepository";
 import bcrypt from "bcrypt";
 import { sign } from "jsonwebtoken";
 

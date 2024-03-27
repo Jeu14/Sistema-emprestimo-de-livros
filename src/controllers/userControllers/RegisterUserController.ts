@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { userRepository } from "../repositories/userRepository";
+import { userRepository } from "../../repositories/userRepository";
 import bcrypt from "bcrypt";
 
 export class registerUserController {
@@ -28,7 +28,7 @@ export class registerUserController {
 
             await userRepository.save(newUser);
 
-            const {senha, ...userWhithoutPass} = newUser;
+            const { senha, ...userWhithoutPass } = newUser;
 
             return res.status(201).json(userWhithoutPass);
         } catch (error) {

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { loggedUser } from "./LoggedUser";
-import { IUserData } from "../interfaces/IUserData";
-import { userRepository } from "../repositories/userRepository";
+import { IUserData } from "../../interfaces/IUserData";
+import { userRepository } from "../../repositories/userRepository";
 import bcrypt from "bcrypt";
 
 export class updateUser {
