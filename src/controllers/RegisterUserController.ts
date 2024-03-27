@@ -11,12 +11,10 @@ export class registerUserController {
         });
 
         if (existingEmail) {
-            return res
-                .status(409)
-                .json({
-                    mensagem:
-                        "Já existe usuário cadastrado com o e-mail informado.",
-                });
+            return res.status(409).json({
+                mensagem:
+                    "Já existe usuário cadastrado com o e-mail informado.",
+            });
         }
 
         const encryptedPass = await bcrypt.hash(senha, 10);
@@ -30,11 +28,7 @@ export class registerUserController {
 
             await userRepository.save(newUser);
 
-            const userWhithoutPass = {
-                id: newUser.id,
-                nome: newUser.nome,
-                email: newUser.email,
-            };
+            const {senha, ...userWhithoutPass} = newUser;
 
             return res.status(201).json(userWhithoutPass);
         } catch (error) {
