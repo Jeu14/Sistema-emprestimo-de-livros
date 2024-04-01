@@ -37,7 +37,6 @@ export const loginVerify = async (
 
         next();
     } catch (error) {
-        console.log(error);
         return res.status(401).json({
             mensagem:
                 "Para acessar este recurso um token de autenticação válido deve ser enviado.",
