@@ -7,6 +7,7 @@ import { updateUser } from "./controllers/userControllers/UpdateUserController";
 import { listBooks } from "./controllers/bookControllers/listBooksController";
 import { booksDetails } from "./controllers/bookControllers/bookDetailsController";
 import { listStudents } from "./controllers/studentControllers/listStudemtsController";
+import { studentDetails } from "./controllers/studentControllers/studentDetailsController";
 
 const routes = Router();
 
@@ -22,5 +23,6 @@ routes.get("/livros", new listBooks().list)
 routes.get("/livro/:id", new booksDetails().index)
 
 routes.get("/alunos", new listStudents().list)
+routes.get("/aluno/:id", new studentDetails().index)
 
 export default routes;
