@@ -4,7 +4,7 @@ import { userLoginController } from "./controllers/userControllers/UserLoginCont
 import { userDetails } from "./controllers/userControllers/UserDetailsController";
 import { loginVerify } from "./middlewares/loginVerify";
 import { updateUser } from "./controllers/userControllers/UpdateUserController";
-import { listBooks } from "./controllers/bookControllers/listBooks";
+import { listBooks } from "./controllers/bookControllers/listBooksController";
 
 const routes = Router();
 
