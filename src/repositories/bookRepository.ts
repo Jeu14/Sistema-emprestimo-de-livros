@@ -1,9 +1,8 @@
 import { AppDataSource } from "../data-source";
-import { Book } from "../entities/Books";
-
+import { Book } from "../entities/Book";
 
 export const bookRepository = AppDataSource.getRepository(Book).extend({
-  async findByName(titulo: string) {
-      return this.find({where: {titulo}})
-  },
+    async findByTitle(titulo: string) {
+        return this.find({ where: { titulo } });
+    },
 });

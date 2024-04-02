@@ -6,6 +6,7 @@ import { loginVerify } from "./middlewares/loginVerify";
 import { updateUser } from "./controllers/userControllers/UpdateUserController";
 import { listBooks } from "./controllers/bookControllers/listBooksController";
 import { booksDetails } from "./controllers/bookControllers/bookDetailsController";
+import { listStudents } from "./controllers/studentControllers/listStudemtsController";
 
 const routes = Router();
 
@@ -19,5 +20,7 @@ routes.put("/usuario", new updateUser().update);
 
 routes.get("/livros", new listBooks().list)
 routes.get("/livro/:id", new booksDetails().index)
+
+routes.get("/alunos", new listStudents().list)
 
 export default routes;
