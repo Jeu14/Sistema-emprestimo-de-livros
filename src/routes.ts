@@ -5,6 +5,7 @@ import { userDetails } from "./controllers/userControllers/UserDetailsController
 import { loginVerify } from "./middlewares/loginVerify";
 import { updateUser } from "./controllers/userControllers/UpdateUserController";
 import { listBooks } from "./controllers/bookControllers/listBooksController";
+import { booksDetails } from "./controllers/bookControllers/bookDetailsController";
 
 const routes = Router();
 
@@ -17,5 +18,6 @@ routes.get("/usuario", new userDetails().index);
 routes.put("/usuario", new updateUser().update);
 
 routes.get("/livros", new listBooks().list)
+routes.get("/livro/:id", new booksDetails().index)
 
 export default routes;
