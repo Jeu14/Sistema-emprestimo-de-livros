@@ -1,10 +1,18 @@
 import { Request, Response } from "express";
 import { studentRepository } from "../../repositories/studentRepository";
+import { studentSchema } from "../../validations/studentValidations/studentValidation";
 
 export class registerStudent {
     async store(req: Request, res: Response) {
         try {
-            const { nome, email } = req.body;
+            const { error, value } = studentSchema.validate(req.body);
+
+            if (error) {
+                const errorMessage = error.details[0].message;
+                return res.status(400).json({ mensagem: errorMessage });
+            }
+
+            const { nome, email } = value;
 
             const existingEmail = await studentRepository.findOne({
                 where: { email },
