@@ -3,11 +3,20 @@ import { loggedUser } from "./LoggedUser";
 import { IUserData } from "../../interfaces/IUserData";
 import { userRepository } from "../../repositories/userRepository";
 import bcrypt from "bcrypt";
+import { userSchema } from "../../validations/userValidations/registerAndUpdateUserValidation";
 
 export class updateUser {
     async update(req: Request, res: Response) {
-        const { nome, email, senha } = req.body;
         try {
+            const { error, value } = userSchema.validate(req.body);
+
+            if (error) {
+                const errorMessage = error.details[0].message;
+                return res.status(400).json({ mensagem: errorMessage });
+            }
+
+            const { nome, email, senha } = value;
+
             const user: IUserData = await loggedUser(req);
 
             const existingEmail = await userRepository.findOne({

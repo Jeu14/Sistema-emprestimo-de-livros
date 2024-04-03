@@ -1,10 +1,18 @@
 import { Request, Response } from "express";
 import { userRepository } from "../../repositories/userRepository";
 import bcrypt from "bcrypt";
+import { userSchema } from "../../validations/userValidations/registerAndUpdateUserValidation";
 
 export class registerUserController {
     async store(req: Request, res: Response) {
-        const { nome, email, senha } = req.body;
+        const { error, value } = userSchema.validate(req.body);
+
+        if (error) {
+            const errorMessage = error.details[0].message;
+            return res.status(400).json({ mensagem: errorMessage });
+        }
+
+        const { nome, email, senha } = value;
 
         const existingEmail = await userRepository.findOne({
             where: { email },
