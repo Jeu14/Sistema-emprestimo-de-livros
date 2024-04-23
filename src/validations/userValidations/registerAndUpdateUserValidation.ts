@@ -15,6 +15,6 @@ export const userSchema = joi.object({
   senha: joi.string().min(5).required().messages({
     'any.required': 'O campo senha é obrigatório',
 		'string.empty': 'O campo senha não pode ficar vazio',
-		'string.min': 'A senha precisa conter, no mínimo,  caracteres',
+		'string.min': 'A senha precisa conter, no mínimo, 5 caracteres',
   }),
 }) 
