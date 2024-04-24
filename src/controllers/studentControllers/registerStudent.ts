@@ -19,7 +19,7 @@ export class registerStudent {
             });
 
             if (existingEmail) {
-                res.status(409).json({
+                return res.status(409).json({
                     mensagem: "O e-mail informado já existe para outro aluno.",
                 });
             }
