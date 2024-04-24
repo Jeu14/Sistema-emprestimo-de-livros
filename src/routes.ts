@@ -9,6 +9,7 @@ import { booksDetails } from "./controllers/bookControllers/bookDetailsControlle
 import { listStudents } from "./controllers/studentControllers/listStudemtsController";
 import { studentDetails } from "./controllers/studentControllers/studentDetailsController";
 import { registerStudent } from "./controllers/studentControllers/registerStudent";
+import { studentUpdate } from "./controllers/studentControllers/updateStudentController";
 
 const routes = Router();
 
@@ -26,5 +27,6 @@ routes.get("/livro/:id", new booksDetails().index)
 routes.get("/alunos", new listStudents().list)
 routes.get("/aluno/:id", new studentDetails().index)
 routes.post("/aluno", new registerStudent().store)
+routes.put("/aluno/:id", new studentUpdate().update)
 
-export default routes;
+export default routes;  
