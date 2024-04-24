@@ -31,13 +31,7 @@ export class registerStudent {
 
             await studentRepository.save(newStudent);
 
-            const formattedStudentData = {
-                id: newStudent.id,
-                nome: newStudent.nome,
-                email: newStudent.email,
-            };
-
-            return res.status(201).json(formattedStudentData);
+            return res.status(201).json(newStudent);
         } catch (error) {
             res.status(500).json({
                 mensagem: "Não foi possível efetuar o cadastro do(a) aluno(a",
