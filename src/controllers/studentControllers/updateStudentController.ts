@@ -43,7 +43,7 @@ export class studentUpdate {
       res.status(204).send();
     } catch (error) {
       res.status(500).json({
-        mensagem: "Não foi possível efetuar o cadastro do(a) aluno(a)",
+        mensagem: "Não foi possível atualizar as informações do(a) aluno(a)",
       });
     }
   }

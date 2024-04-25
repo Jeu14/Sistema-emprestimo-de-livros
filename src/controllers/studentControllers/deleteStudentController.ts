@@ -23,7 +23,7 @@ export  class deleteStudent {
               res.status(204).send()
         } catch (error) {
             res.status(500).json({
-                mensagem: "Não foi possível efetuar o cadastro do(a) aluno(a)",
+                mensagem: "Não foi possível efetuar a exclusão do aluno(a)",
               });
         }
     }
