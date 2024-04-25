@@ -10,6 +10,7 @@ import { listStudents } from "./controllers/studentControllers/listStudemtsContr
 import { studentDetails } from "./controllers/studentControllers/studentDetailsController";
 import { registerStudent } from "./controllers/studentControllers/registerStudent";
 import { studentUpdate } from "./controllers/studentControllers/updateStudentController";
+import { deleteStudent } from "./controllers/studentControllers/deleteStudentController";
 
 const routes = Router();
 
@@ -28,5 +29,6 @@ routes.get("/alunos", new listStudents().list)
 routes.get("/aluno/:id", new studentDetails().index)
 routes.post("/aluno", new registerStudent().store)
 routes.put("/aluno/:id", new studentUpdate().update)
+routes.delete("/aluno/:id", new deleteStudent().delete)
 
 export default routes;  
