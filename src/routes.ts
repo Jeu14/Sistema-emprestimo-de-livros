@@ -1,4 +1,4 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
 import { registerUserController } from "./controllers/userControllers/RegisterUserController";
 import { userLoginController } from "./controllers/userControllers/UserLoginController";
 import { userDetails } from "./controllers/userControllers/UserDetailsController";
