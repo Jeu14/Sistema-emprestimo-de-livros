@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Loan } from "./Loan";
 
 @Entity("Alunos")
@@ -12,7 +12,7 @@ export class Student extends BaseEntity {
   @Column()
   email: string;
 
-  @ManyToMany(() => Loan, loan => loan.aluno)
-  @JoinTable()
+  @OneToMany(() => Loan, loan => loan.aluno_id)
+  // @JoinTable()
   emprestimos: Loan[];
 }

@@ -8,11 +8,11 @@ export class Loan extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => Book)
-    livro: Book;
+    @ManyToOne(() => Book, livro => livro.emprestimos)
+    livro_id: Book;
 
-    @ManyToOne(() => Student)
-    aluno: Student;
+    @ManyToOne(() => Student, aluno => aluno.emprestimos)
+    aluno_id: Student;
 
     @Column({ type: "boolean", default: false })
     devolvido: boolean;
