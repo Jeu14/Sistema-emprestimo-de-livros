@@ -25,30 +25,27 @@ export class lendBook {
                 return res.status(404).json({ mensagem: "Livro não encontrado" }); 
             }
             
-            // const borrowedBook = await loanRepository.findOne({
-            //     where: { 
-            //         livro_id: { id: Number(livro_id) }, 
-            //         devolvido: false 
-            //     }
-            // });
+            const borrowedBook = await loanRepository.findOne({
+                where: { 
+                    livro_id: { id: Number(livro_id) }, 
+                    devolvido: false 
+                }
+            });
             
-            // if (borrowedBook) {
-            //     return res.status(409).json({ mensagem: "O livro informado já está emprestado para outro aluno." }); 
-            // }
+            if (borrowedBook) {
+                return res.status(409).json({ mensagem: "O livro informado já está emprestado para outro aluno." }); 
+            }
 
             const newLoan = loanRepository.create({
                 aluno_id,
                 livro_id
             })
-            console.log(newLoan);
             
             await loanRepository.save(newLoan)
 
             return res.status(204).json(newLoan)
 
         } catch (error) {
-            console.log(error);
-            
             res.status(500).json({
                 mensagem: "Não foi possível efetuar o empréstimo do livro",
             });
