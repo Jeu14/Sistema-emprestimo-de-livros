@@ -43,7 +43,7 @@ export class lendBook {
             
             await loanRepository.save(newLoan)
 
-            return res.status(204).json(newLoan)
+            return res.status(201).json(newLoan)
 
         } catch (error) {
             res.status(500).json({
