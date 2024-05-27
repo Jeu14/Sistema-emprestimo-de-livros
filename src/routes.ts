@@ -12,6 +12,7 @@ import { registerStudent } from "./controllers/studentControllers/registerStuden
 import { studentUpdate } from "./controllers/studentControllers/updateStudentController";
 import { deleteStudent } from "./controllers/studentControllers/deleteStudentController";
 import { lendBook } from "./controllers/loanControllers/lendBookController";
+import { returnBook } from "./controllers/loanControllers/returnBookController";
 
 const routes = Router();
 
@@ -33,5 +34,6 @@ routes.put("/aluno/:id", new studentUpdate().update)
 routes.delete("/aluno/:id", new deleteStudent().delete)
 
 routes.post("/emprestimos", new lendBook().loan)
+routes.patch("/emprestimos/:id", new returnBook().loan)
 
 export default routes;  
