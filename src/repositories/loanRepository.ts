@@ -6,10 +6,3 @@ export const loanRepository = AppDataSource.getRepository(Loan).extend({
         return this.find({ where: { id } });
     },
 });
-
-
-// export const loanRepository = AppDataSource.getRepository(Loan).extend({
-//     async findById(id: number) {
-//         return this.findOne({ where: { id } });
-//     },
-// });
