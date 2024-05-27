@@ -2,12 +2,20 @@ import { Request, Response } from "express"
 import { studentRepository } from "../../repositories/studentRepository";
 import { loanRepository } from "../../repositories/loanRepository";
 import { bookRepository } from "../../repositories/bookRepository";
+import { loanSchema } from "../../validations/loanValidations/lendBookValidation";
 
 export class lendBook {
     async loan(req: Request, res: Response) {
 
         try {
-            const { livro_id, aluno_id } = req.body
+            const { error, value } = loanSchema.validate(req.body);
+
+            if (error) {
+                const errorMessage = error.details[0].message;
+                return res.status(400).json({ mensagem: errorMessage })
+            }
+
+            const {aluno_id, livro_id} = value
 
             const student = await studentRepository.findOne({
                 where: {id: Number(aluno_id)}
