@@ -22,8 +22,6 @@ export class returnBook {
 
             res.status(204).send();
         } catch (error) {
-            console.log(error);
-            
             res.status(500).json({
                 mensagem: "Não foi possível efetuar a devolução do livro"
             })
