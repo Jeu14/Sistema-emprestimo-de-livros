@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Book } from "./Book";
 import { Student } from "./Student";
 
@@ -9,9 +9,11 @@ export class Loan extends BaseEntity {
     id: number;
 
     @ManyToOne(() => Book, livro => livro.emprestimos)
+    @JoinColumn({ name: 'livro_id' })
     livro_id: Book;
 
     @ManyToOne(() => Student, aluno => aluno.emprestimos)
+    @JoinColumn({ name: 'aluno_id' })
     aluno_id: Student;
 
     @Column({ type: "boolean", default: false })
