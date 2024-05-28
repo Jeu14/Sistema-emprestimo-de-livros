@@ -14,6 +14,7 @@ import { deleteStudent } from "./controllers/studentControllers/deleteStudentCon
 import { lendBook } from "./controllers/loanControllers/lendBookController";
 import { returnBook } from "./controllers/loanControllers/returnBookController";
 import { listLoans } from "./controllers/loanControllers/listLoansController";
+import { loanDetails } from "./controllers/loanControllers/loanDetailsController";
 
 const routes = Router();
 
@@ -37,5 +38,6 @@ routes.delete("/aluno/:id", new deleteStudent().delete)
 routes.post("/emprestimos", new lendBook().loan)
 routes.patch("/emprestimos/:id", new returnBook().loan)
 routes.get("/emprestimos", new listLoans().list)
+routes.get("/emprestimos/:id", new loanDetails().index)
 
 export default routes;  
