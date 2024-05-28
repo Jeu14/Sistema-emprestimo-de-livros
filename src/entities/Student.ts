@@ -13,6 +13,5 @@ export class Student extends BaseEntity {
   email: string;
 
   @OneToMany(() => Loan, loan => loan.aluno_id)
-  // @JoinTable()
   emprestimos: Loan[];
 }

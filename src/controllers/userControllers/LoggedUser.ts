@@ -3,12 +3,6 @@ import jwt from "jsonwebtoken";
 import { userRepository } from "../../repositories/userRepository";
 import { IUserData } from "../../interfaces/IUserData";
 
-// export interface UserData {
-//   id: number;
-//   nome: string;
-//   email: string
-// }
-
 export const loggedUser = async (req: Request): Promise<IUserData> => {
     const { authorization } = req.headers;
 

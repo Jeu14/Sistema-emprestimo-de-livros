@@ -16,6 +16,5 @@ export class Book extends BaseEntity {
     descricao: string;
 
     @OneToMany(() => Loan, loan => loan.livro_id)
-    // @JoinTable()
     emprestimos: Loan[];
 }

@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 import { loanRepository } from "../../repositories/loanRepository";
 
 export class listLoans {
-    async list(req: Request, res: Response) {
+    async list(res: Response) {
         try {
             const repository = await loanRepository.find({ relations: ["aluno_id", "livro_id"] });
 
