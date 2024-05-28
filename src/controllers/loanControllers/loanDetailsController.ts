@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { loanRepository } from "../../repositories/loanRepository";
-import { Loan } from "../../entities/Loan";
 
 export class loanDetails {
     async index(req: Request, res: Response)  {
