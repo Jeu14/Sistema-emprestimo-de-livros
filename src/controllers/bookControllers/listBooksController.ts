@@ -1,8 +1,8 @@
-import { Response } from "express";
+import { Response, Request } from "express";
 import { bookRepository } from "../../repositories/bookRepository";
 
 export class listBooks {
-    async list(res: Response) {
+    async list(req: Request, res: Response) {
         try {
             const books = await bookRepository.find();
             res.status(200).json(books);

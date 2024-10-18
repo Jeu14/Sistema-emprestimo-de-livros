@@ -1,8 +1,8 @@
-import { Response } from "express";
+import { Response, Request } from "express";
 import { studentRepository } from "../../repositories/studentRepository";
 
 export class listStudents {
-    async list(res: Response) {
+    async list(req: Request, res: Response) {
         try {
             const students = await studentRepository.find();
 
